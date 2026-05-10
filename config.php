@@ -6,4 +6,4 @@ const DB_USER = "root";
 const DB_PASS = "";
 
 // base url for the application
-const BASE_URL = "http://localhost/RPL-ForIT";
+const BASE_URL = "http://localhost/ForIT";
