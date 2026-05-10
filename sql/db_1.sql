@@ -1,6 +1,13 @@
+drop table if exists users;
+drop table if exists topics;
+drop table if exists threads;
+drop table if exists thread_topic;
+drop table if exists bookmarks;
+drop table if exists comments;
+drop table if exists reports;
+
 create table users (
     user_id char(26) primary key,
-    
     username varchar(20) unique not null,
     email varchar(254) unique not null,
     fullname varchar(100) not null,
@@ -54,13 +61,15 @@ create table bookmarks (
 create table comments (
     comment_id char(26) primary key,
     content text not null,
+    parent_comment_id char(26) null,
     thread_id char(26) not null,
     author_id char(26) not null,
     created_at timestamp default current_timestamp,
     updated_at timestamp default current_timestamp on update current_timestamp,
     
     foreign key (thread_id) references threads(thread_id),
-    foreign key (author_id) references users(user_id)
+    foreign key (author_id) references users(user_id),
+    foreign key (parent_comment_id) references comments(comment_id)
 );
 
 create table reports (
