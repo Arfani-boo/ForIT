@@ -1,0 +1,1 @@
+Folder ini digunakan untuk menampung struktur database atau SQL dari perubahan awal hingga perubahan terkini (newest).
