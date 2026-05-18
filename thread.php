@@ -242,7 +242,7 @@ $title = e($thread['thread_title']);
                             </div>
                         <?php else: ?>
                             <?php
-                            function render_comment(array $comment, array $user = null, string $threadId = '', string $baseUrl = '', int $depth = 0): void
+                            function render_comment(array $comment, ?array $user = null, string $threadId = '', string $baseUrl = '', int $depth = 0): void
                             {
                                 $isOwner = $user && ($comment['author_id'] === $user['user_id']);
                                 $canMod  = $user && (isset($user['role']) && in_array($user['role'], ['moderator', 'superadmin']));
